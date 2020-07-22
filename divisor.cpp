@@ -8,15 +8,15 @@ long long countDivisor(long long n) {
     long long divisor=1;
     for(int i=0; i<prime.size() && prime[i]<=sqrt(n); i++) {
         if(n % prime[i]==0) {
-            int count = 0;
+            int cnt = 0;
             while(n%prime[i]==0) {
-                count++;
+                cnt++;
                 n/=prime[i];
             }
-            divisor*=count+1;
+            divisor *= cnt+1;
         }
     }
-    if(n>1) divisor*=2;
+    if(n>1) divisor *= 2;
     return divisor;
 }
 
@@ -35,6 +35,5 @@ int main() {
     sieve();
     int n;
     cin>>n;
-    cout << countDivisor(n);
+    cout<<countDivisor(n);
 }
-
